@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int temp;
+
+    printf("Enter the temperature: ");
+    scanf("%d", &temp);
+
+    printf("%d\n", (temp > 70 && temp < 85) * 1);
+    
+    return 0;
+}
