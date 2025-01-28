@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    int numStudents;
+    printf("Enter the number of students: ");
+    scanf("%d", &numStudents);
+
+    int *scores = (int *)malloc(numStudents * sizeof(int));
+
+    printf("Enter the scores for %d students:\n", numStudents);
+    for (int i = 0; i < numStudents; i++) {
+        printf("Student %d: ", i + 1);
+        scanf("%d", &scores[i]);
+    }
+
+    FILE *fptr = fopen("scores.txt", "w");
+    for (int i = numStudents - 1; i >= 0; i--) {
+        fprintf(fptr, "%d\n", scores[i]);
+    }
+
+    free(scores);
+    fclose(fptr);
+
+    return 0;
+}
